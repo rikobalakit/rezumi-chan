@@ -2,69 +2,65 @@
   "requiredbulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Served as a lead and sole Unity engineer across multiple XR projects, shipping client-facing applications, a commercial VR game, and a prize-winning mixed reality experience under aggressive timelines."
+      "bulletpoint": "Lead and sole Unity engineer across 3 shipped projects (2 XR, 1 non-XR) within 13 months, delivering client applications, a commercial VR title (Monkey Tower), and a Meta Special Prize-winning mixed reality experience (Language IRL) under aggressive timelines."
     }
   ],
   "bulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Sole engineer on a large-format interactive XR kiosk for convention environments, delivering a polished Unity application designed for continuous public use on giant touchscreen hardware."
+      "bulletpoint": "Sole engineer on a large-format XR kiosk deployed at 4+ conventions (10+ live days), building a Unity application for continuous public use on a 72-inch touchscreen with fully turnkey operation and no on-site support."
     },
     {
       "ID": 2,
-      "bulletpoint": "Designed and implemented an offline-capable Unity kiosk system with analytics, configurable presentation modes, and an operator control panel, enabling reliable deployments without on-site developer support."
+      "bulletpoint": "Built an offline-capable Unity kiosk with 2 presentation modes and 20+ tracked interaction datapoints per session, logging to local CSV with Google Sheets sync. Reused across 4+ deployments with virtually no remote troubleshooting."
     },
     {
       "ID": 3,
-      "bulletpoint": "Rapidly iterated on client-facing XR software under shifting requirements and tight event deadlines, hardening the experience for public abuse while maintaining high visual and UX polish."
+      "bulletpoint": "Delivered next-day feature updates and adapted to major scope shifts with 1–2 weeks’ notice. Progressed the system through prototype, initial build, and full refactor while adding crash recovery, management mode, and auto-reset for continuous operation."
     },
     {
       "ID": 4,
-      "bulletpoint": "Successfully deployed an interactive XR kiosk at multiple exhibitions, leading to continued reuse by the client beyond the initial activation."
+      "bulletpoint": "Sole full-time engineer on Monkey Tower VR within a 2-person core team, shipping a paid VR title in 9 months with ~12 contracted contributors. Built 10 levels, 7 enemy types, single and multiplayer modes, 2 difficulty tiers, and a roguelite progression system."
     },
     {
       "ID": 5,
-      "bulletpoint": "Led development of Monkey Tower VR, a multi-platform VR puzzle-platformer, prototyping, implementing, and refining the majority of gameplay systems as the project’s primary engineer."
+      "bulletpoint": "Architected core systems including Photon P2P multiplayer, modular gameplay, and extensible progression. Hit Quest 2/3 performance targets and passed all Meta VRC checks without exception requests. Built Unity editor tools for non-engineer content creation."
     },
     {
       "ID": 6,
-      "bulletpoint": "Architected and built core systems for Monkey Tower VR, including player locomotion, puzzle logic, enemy behaviors, progression systems, and extensible game mode architecture."
+      "bulletpoint": "Shipped Monkey Tower VR across Quest 3/3S, Quest 2/Pro, and PCVR via staggered releases, managing technical store submissions. Maintained weekly patches with zero crashes recorded in Meta telemetry and no emergency stability fixes."
     },
     {
       "ID": 7,
-      "bulletpoint": "Shipped Monkey Tower VR on Meta Quest 2, Quest Pro, Quest 3/3S, and PCVR within one year, launching with minimal bugs and zero game-breaking issues."
+      "bulletpoint": "Owned game architecture and integration, coordinating ~12 contracted contributors and serving as final authority on system integrity, performance, and build stability."
     },
     {
       "ID": 8,
-      "bulletpoint": "Collaborated with animation and performance specialists while retaining ownership of overall architecture, tooling, and gameplay implementation for a content-rich VR title."
+      "bulletpoint": "Implemented a fully data-driven architecture with performance-based star progression unlocking abilities and upgrades. Used ScriptableObjects and JSON procedural level definitions to enable content creation without core code changes."
     },
     {
       "ID": 9,
-      "bulletpoint": "Designed Monkey Tower VR with long-term extensibility in mind, enabling future expansion through additional modes, progression systems, and content updates."
+      "bulletpoint": "Sole engineer on Language IRL, delivering a mixed reality AI language tutor in 4 weeks within a 2-person team. Extended and refactored early Quest passthrough examples into a competition-ready system."
     },
     {
       "ID": 10,
-      "bulletpoint": "Served as sole engineer and systems integrator on Language IRL, a prize-winning mixed reality language learning application developed for the Meta Horizon Start Developer Competition."
+      "bulletpoint": "Built an end-to-end MR AI tutoring pipeline integrating passthrough + YOLO object detection, LLM-assisted curriculum generation, spatial anchors, and Azure speech recognition, TTS, and pronunciation grading with real-time local processing."
     },
     {
       "ID": 11,
-      "bulletpoint": "Built a fully functional mixed reality AI tutor in under one month, integrating computer vision, spatial UI, hand tracking, speech recognition, text-to-speech, and pronunciation grading."
+      "bulletpoint": "Used Quest 3 passthrough and spatial APIs to anchor exercises to real-world objects, adapting UI to partially documented platform components under strict deadlines."
     },
     {
       "ID": 12,
-      "bulletpoint": "Leveraged early Meta Quest 3 passthrough and spatial APIs to transform real-world environments into interactive learning spaces grounded in physical context."
+      "bulletpoint": "Implemented safeguards to validate and filter LLM-generated lesson content, preventing inappropriate outputs while maintaining context-appropriate language experiences."
     },
     {
       "ID": 13,
-      "bulletpoint": "Designed resilient AI-driven interaction flows, carefully tuning language generation and feedback systems to ensure supportive, safe, and context-appropriate learning experiences."
+      "bulletpoint": "Language IRL was named one of three winners of Meta’s $50,000 Best Implementation of Passthrough Camera Access (PCA) with AI award."
     },
     {
       "ID": 14,
-      "bulletpoint": "Language IRL was officially recognized as a prize-winning entry in a Meta-sponsored developer competition, securing $50,000 in funding."
-    },
-    {
-      "ID": 15,
-      "bulletpoint": "Created and maintained a shared internal Unity utility library reused across all HowellXR projects, accelerating development and improving consistency across multiple XR applications."
+      "bulletpoint": "Built and maintained a shared Unity utility library across all HowellXR projects, centralizing logging and editor tooling to reduce duplicate code and improve workflow consistency."
     }
   ]
 }

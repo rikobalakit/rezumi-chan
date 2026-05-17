@@ -2,10 +2,10 @@ namespace RezumiChan.Data;
 
 public class AppSettings
 {
-    public OpenAISettings OpenAI { get; set; }
+    public OpenRouterSettings OpenRouter { get; set; }
 }
 
-public class OpenAISettings
+public class OpenRouterSettings
 {
     public string ApiKey { get; set; }
 }

@@ -74,8 +74,11 @@ public record SkillBankEntry(
     string Skill
 );
 
-public class OrderedSkillIdsResponse
+public class OrderedSkillsResponse
 {
+    [JsonProperty("ordered_categories")]
+    public List<string> OrderedCategories { get; set; } = new();
+
     [JsonProperty("ordered_skill_ids")]
     public List<int> OrderedSkillIds { get; set; } = new();
 }

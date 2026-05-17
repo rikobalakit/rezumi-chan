@@ -2,33 +2,37 @@
   "requiredbulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Designer, builder, and driver of sport combat robots, as well as shop owner for robotics and electronics tools and components."
+      "bulletpoint": "Founder and principal engineer of Grey Skies Automation, an independent robotics lab designing competitive combat robots, custom PCBs with embedded firmware, telemetry systems, and boutique hardware/software tools."
+    },
+    {
+      "ID": 2,
+      "bulletpoint": "Awarded NHRL 'Most Innovative Bot' for Injection!, pioneering real-time haptic driver feedback based on damage, battery state, and live telemetry."
     }
   ],
   "bulletpoints": [
     {
+      "ID": 1,
+      "bulletpoint": "Developed Two Factor Annihilation with Steam Deck-based telemetry and control visualization, achieving 2nd place at its debut while demonstrating real-time monitoring and driver feedback."
+    },
+    {
       "ID": 2,
-      "bulletpoint": "Developed a robot named Two Factor Annihilation with Steam Deck integration for real-time telemetry and control, achieving 2nd place at debut, impressing robot combat enthusiasts."
+      "bulletpoint": "Implemented adaptive control systems adjusting driver feedback based on live sensor data (damage state, battery metrics), introducing semi-autonomous assist behavior in competition."
+    },
+    {
+      "ID": 3,
+      "bulletpoint": "Built a Steam Deck telemetry interface with real-time 3D orientation and audio impact feedback, earning feature coverage in robotics media such as NHRL."
     },
     {
       "ID": 4,
-      "bulletpoint": "Pioneered semi-autonomous combat robotics with advanced sensor feedback, proving viability of 'smart' controls in live events. Integrated adaptive controls that modify based on sustained damage, keeping performance optimal mid-battle."
+      "bulletpoint": "Designed and sold a custom ESC programming breakout board (PCB hardware), simplifying configuration for combat robotics teams and generating ~$2,000 through iterative revisions."
     },
     {
       "ID": 5,
-      "bulletpoint": "Integrated real-time 3D orientation views and audio impact feedback via Steam Deck, enhancing combat robots’ performance monitoring, earning recognition and a feature interview in a major robotics channel"
+      "bulletpoint": "Operated Grey Skies Automation delivering custom robotics electronics, music-tech prototypes, and consulting engagements (including HowellXR projects)."
     },
     {
       "ID": 6,
-      "bulletpoint": "Achieved efficient combat robot fabrication by managing CNC, laser-cut, and 3D-printed parts with advanced materials like carbon fiber nylon, UHMWPE, titanium, and AR500 steel."
-    },
-    {
-      "ID": 7,
-      "bulletpoint": "Increased ESC reprogramming efficiency with a custom breakout board, reducing setup complexity and improving usability in the robotics community, adopted by major robotics shops, generating thousands of dollars revenue and community acclaim."
-    },
-    {
-      "ID": 8,
-      "bulletpoint": "Started the Grey Skies Automation shop to meet demand for custom robot parts/tools initially designed for personal projects, resulting in thousands in sales and expanded distribution to additional sites."
+      "bulletpoint": "Developed embedded firmware for combat robotics platforms, integrating sensor data, telemetry transmission, and adaptive control logic for live decision support."
     }
   ]
 }

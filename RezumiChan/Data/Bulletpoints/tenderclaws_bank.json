@@ -2,49 +2,29 @@
   "requiredbulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Excelled as a Unity generalist software engineer, crafting gameplay for Virtual Virtual Reality 2 and Stranger Things VR, released on Meta Quest, Rift, and SteamVR."
+      "bulletpoint": "Unity software engineer on two shipped VR titles—Virtual Virtual Reality 2 and the licensed Stranger Things VR—developing gameplay systems, rhythm engine technology, and platform integrations across Meta Quest, Rift, and SteamVR."
     }
   ],
   "bulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Created and owned game mechanics in 'Stranger Things VR,' enabling immersive interactions with characters and telekinetic powers, expanding the game’s narrative world and appeal."
+      "bulletpoint": "Contributed gameplay systems and narrative cutscene implementation for Stranger Things VR, including major sequences in the Spider Monster level and dreamscape encounters. Implemented interactive telekinetic mechanics, environmental interactions, and portions of enemy AI behavior for the Meta Quest release."
     },
     {
       "ID": 2,
-      "bulletpoint": "Implemented device-specific controls and tutorials in multiple titles, ensuring smooth cross-platform play on Meta Quest, SteamVR, and Meta Rift, enhancing user accessibility."
+      "bulletpoint": "Maintained and extended existing cross-platform input and tutorial systems for Virtual Virtual Reality 2, ensuring consistent behavior across Meta Quest, Rift, and SteamVR following team transitions and supporting stable multi-device releases."
     },
     {
       "ID": 3,
-      "bulletpoint": "Delivered four additional rhythm game levels on time for VVR2’s 'Music Update,' playtested rigorously, contributing to a rise in new users post-update."
+      "bulletpoint": "Designed and fully implemented a reusable VR rhythm game engine for Virtual Virtual Reality 2, owning all gameplay systems and delivering 4 new levels in a 3-month Music Update cycle. Engine supported variable tempo changes, generalized map structures (note types, metadata), and sustained 72 FPS performance on Meta Quest 2 hardware."
     },
     {
       "ID": 4,
-      "bulletpoint": "Built a scalable rhythm game engine for Tender Claws’ VR titles, structuring it for reusability and modularity across various gameplay designs, optimizing future development."
+      "bulletpoint": "Extended and productionized an internal subtitle generation system supporting 7 languages, adding validation tooling to detect missing or broken characters and improve localization coverage, reducing manual verification effort and improving release reliability."
     },
     {
       "ID": 5,
-      "bulletpoint": "Collaborated with artist and QA lead to release VVR2’s 'Music Update,' implementing, debugging, and refining levels for a polished final product that boosted player engagement."
-    },
-    {
-      "ID": 6,
-      "bulletpoint": "Produced subtitle generation tools for multiple language support, automating verification processes and reducing errors, significantly enhancing global accessibility."
-    },
-    {
-      "ID": 7,
-      "bulletpoint": "Adapted to urgent publisher requests, quickly resolving bugs to maintain the quality and performance standards of 'Stranger Things VR.'"
-    },
-    {
-      "ID": 8,
-      "bulletpoint": "Designed VR gameplay mechanics for 'Stranger Things VR,' enabling players to navigate dreams, memories, and possess minds, expanding the immersive experience of the game."
-    },
-    {
-      "ID": 9,
-      "bulletpoint": "Conducted extensive playtesting for rhythm game mechanics, gathering player feedback to refine difficulty levels and ensure an engaging experience for diverse player skill levels."
-    },
-    {
-      "ID": 10,
-      "bulletpoint": "Resolved high-priority bugs swiftly, balancing speed with precision to meet publishing deadlines without compromising game quality."
+      "bulletpoint": "Worked within Meta’s FQA certification process for a high-visibility licensed title, resolving platform compliance issues and resubmitting fixes within 1–5 day verification cycles to ensure release readiness under Meta’s publishing standards."
     }
   ]
 }

@@ -2,49 +2,33 @@
   "requiredbulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Designed custom electronics, firmware, and cinematic UI to monitor a 250 lb combat robot's health for live battles, post-match analysis, and pre-tournament debugging."
+      "bulletpoint": "Designed custom electronics, embedded firmware, and a Unity-based telemetry UI to monitor ~100 datapoints on a 250 lb combat robot across multiple competition seasons (BattleBots WCVII 2022, 2023 exhibition, 2024 mini-series, and upcoming 2026 Pro League), supporting live diagnostics, post-match analysis, and pre-tournament debugging."
     }
   ],
   "bulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Developed a Unity-based telemetry UI with sci-fi visuals, bridging engineering and 4M+ audience engagement and showcasing cross-functional tech innovation through real-time data insights and dynamic animations."
+      "bulletpoint": "Developed a Unity telemetry interface rendering live diagnostics with dynamic visualizations for broadcast integration and team decision-making."
     },
     {
       "ID": 2,
-      "bulletpoint": "Designed Bloodsport’s cutting-edge telemetry electronics, using KiCAD and custom PCBs to withstand combat demands and ensure durability in high-speed environments."
+      "bulletpoint": "Designed custom telemetry PCBs in KiCAD with embedded C++ firmware, optimizing signal integrity and low-latency data acquisition in high-impact environments."
     },
     {
       "ID": 3,
-      "bulletpoint": "Engineered custom embedded telemetry electronics and firmware in C++ and KiCAD, optimizing data accuracy and latency for reliable, real-time performance monitoring."
+      "bulletpoint": "Implemented LoRa-based telemetry to maintain stable data transmission in RF-hostile arenas."
     },
     {
       "ID": 4,
-      "bulletpoint": "Managed manufacturing of several PCB designs, saving 1-2 hours per board in manual assembly and cutting costs through optimized overseas production partnerships."
+      "bulletpoint": "Coordinated overseas PCB manufacturing, reducing manual build time by 1–2 hours per board and lowering per-unit cost."
     },
     {
       "ID": 5,
-      "bulletpoint": "Applied RF protocols like LoRa to ensure Bloodsport’s data stability in RF-hostile arenas and venues, showcasing expertise in high-resilience embedded systems for robotics."
+      "bulletpoint": "Designed magnetic weapon safety covers exceeding minimum compliance standards, improving transport safety and streamlining inspection procedures."
     },
     {
       "ID": 6,
-      "bulletpoint": "Optimized embedded telemetry systems for real-time monitoring, enhancing Bloodsport’s competitive performance and live insights during critical match moments."
-    },
-    {
-      "ID": 7,
-      "bulletpoint": "Designed safety devices to exceed standard requirements, impressing internal reviewers with robust, quality-focused solutions that emphasize durability and safety."
-    },
-    {
-      "ID": 8,
-      "bulletpoint": "Spearheaded overseas PCB manufacturing, saving 1-2 hrs per board in manual assembly and cutting costs, while maintaining high standards of performance."
-    },
-    {
-      "ID": 9,
-      "bulletpoint": "Designed telemetry electronics to withstand extreme conditions, ensuring durable, real-time insights even in the challenging environments of BattleBots matches."
-    },
-    {
-      "ID": 10,
-      "bulletpoint": "Provided insights through Bloodsport’s telemetry system that led to a 25% improvement in spin-up time, a 60% increase in torque, and a safe current increase by 50%, resulting in stronger impacts."
+      "bulletpoint": "Used telemetry-driven insights to achieve a 25% reduction in spin-up time, 60% higher torque, and a 50% increase in safe operating current."
     }
   ]
 }

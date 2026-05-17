@@ -48,7 +48,7 @@
       "context": "BattleBots",
       "title": "Telemetry Specialist",
       "description": [
-        "Teammember and telemetry specialist on Team Bloodsport on the television show BattleBots.",
+        "Team member and telemetry specialist on Team Bloodsport on the television show BattleBots.",
         "Designed and implemented custom electronics, firmware, and software with cinematic-style UI."
       ]
     },
@@ -63,29 +63,32 @@
   ],
   "skills": [
     {
-      "category": "Software Development",
+      "category": "Real-Time & Interactive Systems",
       "topskills": [
         "Unity"
       ],
       "skills": [
         "Unreal",
-        "Virtual Reality (SteamVR, Meta Quest & Rift)",
-        "Augmented Reality",
-        "Motion Capture",
-        "Netcode",
-        "Databases (MySQL, SQLite, MongoDB)",
+        "Multiplayer & Networking (Photon Fusion, Photon Voice)",
+        "XR Development (VR, MR, AR – SteamVR, Meta Quest, Passthrough)",
+        "Motion Capture & Tracking (SteamVR Trackers, ARKit)",
+        "Performance Optimization (Multi-Platform, XR)",
+        "Embedded & Kiosk-Style Runtime Applications",
+        "Online Safety & Moderation Features (Live Systems)"
       ]
     },
     {
-      "category": "AI & Machine Learning",
+      "category": "AI-Integrated Software Systems",
       "topskills": [
+        "LLM-Orchestrated Pipelines"
       ],
       "skills": [
-        "Natural Language Processing",
-        "Prompt Engineering",
-        "Generative AI",
-        "OpenAI/ChatGPT",
-        "Huggingface"
+        "Speech-to-Text / Text-to-Speech Integration (OpenAI, Azure)",
+        "Natural Language Processing (Applied)",
+        "Prompt Design & AI Orchestration",
+        "Computer Vision (YOLO-based CV)",
+        "Multimodal AI Systems (Voice, Vision, Language)",
+        "Cloud AI Platforms (Azure AI Services, OpenAI APIs)"
       ]
     },
     {
@@ -95,56 +98,77 @@
         "C++"
       ],
       "skills": [
-        "C",
-        "JavaScript",
         "Python",
+        "JavaScript",
+        "C",
         "PHP",
         "HTML",
         "CSS"
       ]
     },
     {
-      "category": "Design Tools",
+      "category": "Design, CAD & Electronics",
       "topskills": [
       ],
       "skills": [
-        "SolidWorks",
-        "Fusion 360",
-        "KiCAD",
-        "Photoshop"
+        "PCB Design (KiCad)",
+        "Mechanical Design (SolidWorks, Fusion 360)",
+        "Rapid Prototyping & Iteration"
       ]
     },
     {
-      "category": "Prototyping and Manufacturing",
+      "category": "Prototyping & Manufacturing",
       "topskills": [
       ],
       "skills": [
         "3D Printing",
-        "PCB Design & Assembly",
+        "PCB Assembly & Bring-Up",
         "CNC Machining"
       ]
     },
     {
-      "category": "Embedded Systems",
+      "category": "Embedded & Physical Computing",
       "topskills": [
+        "Microcontrollers (Arduino, Teensy, ESP32, STM32)"
       ],
       "skills": [
-        "Microcontrollers (Arduino, Teensy, ESP32, STM32)",
-        "Wireless Communication (Bluetooth, BLE, LoRa)"
+        "Wireless Communication (ESP-NOW, Bluetooth, BLE, LoRa)",
+        "Robotics Control, Telemetry, & Haptic Feedback Systems"
       ]
     },
     {
-      "category": "Collaboration Tools",
+      "category": "Data & Persistence",
       "topskills": [
       ],
       "skills": [
-        "Perforce",
+        "Relational & Embedded Databases (MySQL, SQLite)",
+        "Document-Oriented Databases (MongoDB)"
+      ]
+    },
+    {
+      "category": "Engineering Leadership & Delivery",
+      "topskills": [
+      ],
+      "skills": [
+        "Technical Lead / Solo Engineer Ownership",
+        "Task Triage & Prioritization",
+        "Contractor Coordination & Delegation",
+        "Cross-Disciplinary Collaboration"
+      ]
+    },
+    {
+      "category": "Development & Collaboration Tooling",
+      "topskills": [
+      ],
+      "skills": [
         "Git",
-        "Slack",
+        "Perforce",
         "JIRA",
-        "Asana",
-        "Trello",
         "Confluence",
+        "Slack",
+        "Asana",
+        "PlasticSCM",
+        "Trello",
         "Google Workspace"
       ]
     }
@@ -155,12 +179,6 @@
       "subinstitution": "Dwight Look College of Engineering",
       "degree": "B.S. Computer Engineering",
       "years": "2011-2016, 2023"
-    },
-    {
-      "institution": "Theodore Roosevelt High School",
-      "subinstitution": "Engineering & Technologies Academy",
-      "degree": "Diploma",
-      "years": "2007-2011"
     }
   ]
 }

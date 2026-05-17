@@ -2,45 +2,33 @@
   "requiredbulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Drove development as a generalist engineer, crafting major features in the Unity-based client app and supporting backend."
+      "bulletpoint": "Unity engineer on Wave’s VR social concert platform, building live event systems, performance tools, and backend-integrated client features in a startup environment."
     }
   ],
   "bulletpoints": [
     {
       "ID": 1,
-      "bulletpoint": "Architected and shipped the DJ Deck performance tools, balancing accessibility with depth for hobbyist DJs, increasing user engagement and satisfaction."
+      "bulletpoint": "Expanded Wave’s DJ Deck performance system, implementing much of its final feature set while collaborating on audio encoding and streaming subsystems. Evolved an early prototype into a production-ready interface used in live VR events."
     },
     {
       "ID": 2,
-      "bulletpoint": "Founded and led Wave's Resident DJ Program, elevating user-generated content and boosting community engagement during downtime between major events."
+      "bulletpoint": "Founded and led Wave’s Resident DJ Program in its first year, scaling to 12 concurrent DJs and up to 5 weekly VR shows between headline events. Drove feature improvements across DJ Deck, scheduling, and moderation systems."
     },
     {
       "ID": 3,
-      "bulletpoint": "Designed and implemented WaveMaker venue tool, empowering users to create custom virtual venues, enhancing platform customization."
+      "bulletpoint": "Contributed to WaveMaker, a live venue creation tool built by a four-engineer team, focusing on UI systems and QA iteration. Helped ship a customization system used to create hundreds to thousands of virtual venues."
     },
     {
       "ID": 4,
-      "bulletpoint": "Collaborated with headline artists (John Legend, Imogen Heap) to bring unique VR concert experiences to Wave, strengthening brand prestige and reach."
+      "bulletpoint": "Integrated licensed music assets for headline VR concerts, supporting audio processing and live event implementation within Wave’s Unity platform."
     },
     {
       "ID": 5,
-      "bulletpoint": "Conducted in-depth research on VR social safety standards and developed social safety features for Wave VR, setting new standards for user safety, leading to improved community feedback and retention."
+      "bulletpoint": "Implemented gesture-based and menu-driven friend, block, and mute systems informed by user research and cross-platform safety standards. Partnered with product and UX to improve moderation tooling for live events."
     },
     {
       "ID": 6,
-      "bulletpoint": "Significantly contributed to exploratory project to port VR content to Roblox, enabling Wave to expand into new markets and user demographics."
-    },
-    {
-      "ID": 7,
-      "bulletpoint": "Managed Wave's social channels, growing brand visibility through interactive campaigns, memes, and professional user engagement. Identified critical user needs through community data analysis, advocating for impactful feature prioritization."
-    },
-    {
-      "ID": 8,
-      "bulletpoint": "Advocated for critical user-requested features as the community manager, resulting in prioritized development that boosted user satisfaction and platform loyalty."
-    },
-    {
-      "ID": 9,
-      "bulletpoint": "Analyzed community feedback across social platforms, leading to optimized features that met evolving user expectations."
+      "bulletpoint": "Contributed to an official Wave–Roblox partnership porting the Jauz VR concert to Roblox, implementing gameplay and effects in Lua while adapting to Roblox physics and monetization. Worked with Roblox engineers on encrypted music and limited-access UGC using pre-release tools."
     }
   ]
 }
