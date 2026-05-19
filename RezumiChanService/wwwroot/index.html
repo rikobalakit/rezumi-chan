@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RezumiChan Service Test</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 32px;
+            background: Canvas;
+            color: CanvasText;
+        }
+
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: 24px;
+            font-weight: 650;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: 600;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 320px;
+            box-sizing: border-box;
+            padding: 12px;
+            resize: vertical;
+            font: inherit;
+        }
+
+        input,
+        button {
+            font: inherit;
+        }
+
+        .range-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .range-row input {
+            flex: 1;
+        }
+
+        .range-value {
+            min-width: 92px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        button {
+            margin-top: 16px;
+            padding: 9px 14px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            cursor: wait;
+            opacity: 0.65;
+        }
+
+        progress {
+            display: block;
+            width: 100%;
+            height: 18px;
+            margin-top: 16px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            padding: 12px;
+            border: 1px solid color-mix(in srgb, CanvasText 25%, transparent);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>RezumiChan Service Test</h1>
+
+    <label for="jobText">Job description</label>
+    <textarea id="jobText" placeholder="Paste a job description here"></textarea>
+
+    <label for="jobFile">Or upload a .txt file</label>
+    <input id="jobFile" type="file" accept=".txt,text/plain">
+
+    <label for="attemptSlider">Auto retry</label>
+    <div class="range-row">
+        <input id="attemptSlider" type="range" min="1" max="20" value="1">
+        <span id="attemptLabel" class="range-value">None (1x)</span>
+    </div>
+
+    <button id="submitButton" type="button">Generate PDF</button>
+
+    <progress id="progressBar" max="100" value="0"></progress>
+    <p id="statusText">Ready.</p>
+    <a id="downloadLink" href="#" hidden>Download PDF</a>
+    <pre id="responseText"></pre>
+</main>
+
+<script>
+    const jobText = document.getElementById("jobText");
+    const jobFile = document.getElementById("jobFile");
+    const attemptSlider = document.getElementById("attemptSlider");
+    const attemptLabel = document.getElementById("attemptLabel");
+    const submitButton = document.getElementById("submitButton");
+    const progressBar = document.getElementById("progressBar");
+    const statusText = document.getElementById("statusText");
+    const downloadLink = document.getElementById("downloadLink");
+    const responseText = document.getElementById("responseText");
+
+    attemptSlider.addEventListener("input", updateAttemptLabel);
+    updateAttemptLabel();
+
+    submitButton.addEventListener("click", async () => {
+        submitButton.disabled = true;
+        downloadLink.hidden = true;
+        downloadLink.removeAttribute("href");
+        progressBar.value = 0;
+        statusText.textContent = "Submitting...";
+        responseText.textContent = "";
+
+        try {
+            const status = await submitJob();
+            await pollStatus(status.statusUrl);
+        } catch (error) {
+            statusText.textContent = "Failed.";
+            responseText.textContent = error instanceof Error ? error.message : String(error);
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+
+    async function submitJob() {
+        const file = jobFile.files[0];
+        const maxAttempts = Number(attemptSlider.value);
+        const retryQuery = `?maxAttempts=${encodeURIComponent(maxAttempts)}`;
+        let response;
+
+        if (file) {
+            const formData = new FormData();
+            formData.append("file", file);
+            response = await fetch(`/api/resumes/upload${retryQuery}`, {
+                method: "POST",
+                body: formData
+            });
+        } else {
+            response = await fetch(`/api/resumes/text${retryQuery}`, {
+                method: "POST",
+                headers: { "Content-Type": "text/plain" },
+                body: jobText.value
+            });
+        }
+
+        const body = await readJson(response);
+        if (!response.ok) {
+            throw new Error(JSON.stringify(body, null, 2));
+        }
+
+        responseText.textContent = JSON.stringify(body, null, 2);
+        return body;
+    }
+
+    async function pollStatus(statusUrl) {
+        while (true) {
+            const response = await fetch(statusUrl);
+            const body = await readJson(response);
+            responseText.textContent = JSON.stringify(body, null, 2);
+
+            if (!response.ok) {
+                throw new Error(JSON.stringify(body, null, 2));
+            }
+
+            progressBar.value = body.percent || 0;
+            statusText.textContent = `${body.status}: ${body.message}`;
+
+            if (body.status === "completed") {
+                downloadLink.href = body.downloadUrl;
+                downloadLink.hidden = false;
+                return;
+            }
+
+            if (body.status === "failed") {
+                throw new Error(body.error || "Resume generation failed.");
+            }
+
+            await delay(1500);
+        }
+    }
+
+    async function readJson(response) {
+        const text = await response.text();
+        return text ? JSON.parse(text) : {};
+    }
+
+    function delay(milliseconds) {
+        return new Promise(resolve => setTimeout(resolve, milliseconds));
+    }
+
+    function updateAttemptLabel() {
+        const attempts = Number(attemptSlider.value);
+        attemptLabel.textContent = attempts === 1 ? "None (1x)" : `${attempts}x`;
+    }
+</script>
+</body>
+</html>

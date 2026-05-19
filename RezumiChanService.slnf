@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "RezumiChan.sln",
+    "projects": [
+      "RezumiChan\\RezumiChan.csproj",
+      "RezumiChanService\\RezumiChanService.csproj"
+    ]
+  }
+}

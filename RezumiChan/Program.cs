@@ -25,7 +25,7 @@ namespace RezumiChanCLI
 
         static async Task Main(string[] args)
         {
-            var jobText = File.ReadAllText("Data/job.txt");
+            var jobText = File.ReadAllText(ResolveDataPath("job.txt"));
             await RunResumePipeline(jobText);
         }
 
@@ -381,7 +381,13 @@ namespace RezumiChanCLI
 
         public static string LoadApiKey()
         {
-            var json = File.ReadAllText("config.json");
+            var apiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY");
+            if (!string.IsNullOrWhiteSpace(apiKey))
+            {
+                return apiKey;
+            }
+
+            var json = File.ReadAllText(ResolveContentPath("config.json"));
             var settings = JsonConvert.DeserializeObject<AppSettings>(json);
             return settings.OpenRouter.ApiKey;
         }
@@ -890,12 +896,14 @@ namespace RezumiChanCLI
 
         public static async Task<string> RunResumePipeline(
             string jobPostingText,
-            IProgress<PipelineProgress>? progress = null)
+            IProgress<PipelineProgress>? progress = null,
+            bool openPdf = true,
+            string? outputDirectory = null)
         {
             Report(progress, "Loading resume data…", 5);
-            Resume resume = LoadResume("Data/resume.json");
-            Portfolio portfolio = LoadPortfolio("Data/portfolio.json");
-            Stories stories = LoadStories("Data/stories.json");
+            Resume resume = LoadResume(ResolveDataPath("resume.json"));
+            Portfolio portfolio = LoadPortfolio(ResolveDataPath("portfolio.json"));
+            Stories stories = LoadStories(ResolveDataPath("stories.json"));
 
             var job = new JobPost
             {
@@ -910,15 +918,15 @@ namespace RezumiChanCLI
 
             Report(progress, "Loading bullet point banks…", 30);
             var hxrBank = JsonConvert.DeserializeObject<BulletpointBank>(
-                File.ReadAllText("Data/Bulletpoints/howellxr_bank.json"));
+                File.ReadAllText(ResolveDataPath("Bulletpoints", "howellxr_bank.json")));
             var tcBank = JsonConvert.DeserializeObject<BulletpointBank>(
-                File.ReadAllText("Data/Bulletpoints/tenderclaws_bank.json"));
+                File.ReadAllText(ResolveDataPath("Bulletpoints", "tenderclaws_bank.json")));
             var waveBank = JsonConvert.DeserializeObject<BulletpointBank>(
-                File.ReadAllText("Data/Bulletpoints/wave_bank.json"));
+                File.ReadAllText(ResolveDataPath("Bulletpoints", "wave_bank.json")));
             var bloodsportBank = JsonConvert.DeserializeObject<BulletpointBank>(
-                File.ReadAllText("Data/Bulletpoints/bloodsport_bank.json"));
+                File.ReadAllText(ResolveDataPath("Bulletpoints", "bloodsport_bank.json")));
             var greyskiesBank = JsonConvert.DeserializeObject<BulletpointBank>(
-                File.ReadAllText("Data/Bulletpoints/greyskies_bank.json"));
+                File.ReadAllText(ResolveDataPath("Bulletpoints", "greyskies_bank.json")));
 
             Report(progress, "Selecting bullet points…", 45);
             var hxrSelected = await GetBulletPointsFromBank(hxrBank, job, 4, false);
@@ -930,11 +938,18 @@ namespace RezumiChanCLI
             Report(progress, "Ordering skills…", 65);
             var skills = await GetRelevantSkills(resume, job);
 
+            var safeJobName = SanitizeFileNamePart(job.JobNameAndTitle);
             var filename =
-                $"riko_balakit_resume_{job.JobNameAndTitle}_{GenerateTimestamp()}.pdf";
+                $"riko_balakit_resume_{safeJobName}_{GenerateTimestamp()}.pdf";
+            var outputPath = Path.Combine(outputDirectory ?? Environment.CurrentDirectory, filename);
+            var resolvedOutputDirectory = Path.GetDirectoryName(outputPath);
+            if (!string.IsNullOrWhiteSpace(resolvedOutputDirectory))
+            {
+                Directory.CreateDirectory(resolvedOutputDirectory);
+            }
 
             Report(progress, "Generating PDF…", 85);
-            using (var writer = new PdfWriter(filename))
+            using (var writer = new PdfWriter(outputPath))
             using (var pdf = new PdfDocument(writer))
             {
                 var document = new Document(pdf);
@@ -965,11 +980,18 @@ namespace RezumiChanCLI
                 AddEducationSection(document, resume);
             }
 
-            Report(progress, "Opening PDF…", 95);
-            OpenPdf(filename);
+            if (openPdf)
+            {
+                Report(progress, "Opening PDF…", 95);
+                OpenPdf(outputPath);
+            }
+            else
+            {
+                Report(progress, "PDF ready.", 95);
+            }
 
             Report(progress, "Done!", 100);
-            return filename;
+            return outputPath;
         }
 
 
@@ -994,6 +1016,54 @@ namespace RezumiChanCLI
         static void Report(IProgress<PipelineProgress>? progress, string message, int percent)
         {
             progress?.Report(new PipelineProgress(message, percent));
+        }
+
+        static string ResolveDataPath(params string[] parts)
+        {
+            var allParts = new string[parts.Length + 1];
+            allParts[0] = "Data";
+            Array.Copy(parts, 0, allParts, 1, parts.Length);
+            return ResolveContentPath(Path.Combine(allParts));
+        }
+
+        static string ResolveContentPath(string relativePath)
+        {
+            var currentDirectoryPath = Path.Combine(Environment.CurrentDirectory, relativePath);
+            if (File.Exists(currentDirectoryPath))
+            {
+                return currentDirectoryPath;
+            }
+
+            var appDirectoryPath = Path.Combine(AppContext.BaseDirectory, relativePath);
+            if (File.Exists(appDirectoryPath))
+            {
+                return appDirectoryPath;
+            }
+
+            return currentDirectoryPath;
+        }
+
+        static string SanitizeFileNamePart(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return "anonymous_job";
+            }
+
+            var invalidCharacters = Path.GetInvalidFileNameChars();
+            var builder = new StringBuilder(value.Length);
+            foreach (var character in value.Trim())
+            {
+                builder.Append(invalidCharacters.Contains(character) ? '_' : character);
+            }
+
+            var sanitized = builder.ToString().Replace(' ', '_').Trim('_');
+            if (sanitized.Length == 0)
+            {
+                return "anonymous_job";
+            }
+
+            return sanitized.Length <= 120 ? sanitized : sanitized[..120].Trim('_');
         }
 
 
